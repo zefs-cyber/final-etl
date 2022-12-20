@@ -1,0 +1,156 @@
+h1{
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 2em;
+}
+h4{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+p{
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+  :root {
+    --card-height: 70vh;
+    --card-width: 120vh;
+  }
+  
+  
+  body {
+    text-align: center;
+    min-height: 100vh;
+    background: #212534;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: medium;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  
+  .dash-graph {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 10px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;
+  }
+  
+  .dash-graph:hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 0.5s;
+  }
+  .dash-graph:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+  
+  .dash-graph::before {
+    content: "";
+    width: 102%;
+    height: 104%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -2%;
+      left: -1%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .dash-graph::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 102%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  .dash-dropdown{
+    color:black;
+  }
+
+  .neon-text{
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.04);
+    box-shadow: 0 0 70px 20px rgba(255, 0, 0, 0.04);
+    border-radius: 200px;
+    padding: 10px 10% 116px 10%;
+    margin: 20vh auto 0;
+    font-family: 'GeveretLevin', sans-serif;
+    font-size: 60px;
+    letter-spacing: 30px;
+    color: #ffd4a4;
+    line-height: 0.6;
+    filter: drop-shadow(0px 0px 13px #FB5D3A);
+    -webkit-text-stroke: 6px rgba(255, 0, 0, 0.3);
+    display: inline-block;
+    position: relative;
+    animation: glow 170ms ease infinite forwards;
+}
+
+@keyframes glow {
+    0% {
+
+    }
+    50% {
+        filter: drop-shadow(0px 0px 15px #FB5D3A);
+    }
+    100% {
+
+    }
+}
+
+.dash-dropdown{
+    padding-bottom: 5%;
+}
+#range-slider{
+    margin-top: 30px;
+}
